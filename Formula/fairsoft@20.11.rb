@@ -7,22 +7,22 @@ class FairsoftAT2011 < Formula
   license "LGPL-3.0+"
   version "20.11rc"
 
-  # bottle do
-    # root_url "https://alfa-ci.gsi.de/packages"
-    # sha256 "c0a9273d4f14c56909928fec718d6c65623fe04a797f7dc789d55f7e4996a722" => :catalina
-    # sha256 "83a9ff8e7e64d24e9b467c0021247d7c4ffe2d8fe118d59a91ea38a2c51a9b21" => :mojave
-  # end
+  bottle do
+    root_url "https://alfa-ci.gsi.de/packages"
+    sha256 "ef5cc9a9a55120f5f5d4026ca176f8e47d3c54e5724e2876c1ee6d53e35ba1af" => :catalina
+    sha256 "92045e9cf01a249bbcc6c88813ee788c310d044ff4871a89c88764d7a287610e" => :mojave
+  end
 
-  # pour_bottle? do
-    # reason "The bottle hardcodes locations inside Xcode.app and requires matching XCode CLT (CommandLineTools) to be installed."
-    # satisfy do
-      # MacOS::Xcode.installed? &&
-      # MacOS::Xcode.default_prefix? &&
-      # MacOS::CLT.installed? &&
-      # MacOS::Xcode.version.major_minor == MacOS::CLT.version.major_minor
-    # end
-  # end
-
+  pour_bottle? do
+    reason "The bottle hardcodes locations inside Xcode.app and requires matching XCode CLT (CommandLineTools) to be installed."
+    satisfy do
+      MacOS::Xcode.installed? &&
+      MacOS::Xcode.default_prefix? &&
+      MacOS::CLT.installed? &&
+      MacOS::Xcode.version.major_minor == MacOS::CLT.version.major_minor
+    end
+  end
+#
   resource "source_cache" do
     url "https://alfa-ci.gsi.de/packages/FairSoft_source_cache_full_nov20rc.tar.gz"
     sha256 "a4ea867d57fe28d0a866ae8e2d66f2e8d55b09312c843c7a4da6d1545d01457c"
