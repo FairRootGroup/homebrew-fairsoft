@@ -14,11 +14,17 @@ class FairsoftAT2011 < Formula
   end
 
   pour_bottle? do
-    reason "The bottle hardcodes locations inside Xcode.app and requires matching XCode CLT (CommandLineTools) to be installed."
+    reason "The bottle requires recent XCode and matching XCode CLT (CommandLineTools) versions. Run 'brew update && brew doctor' and follow the update instructions."
     satisfy do
+      recent_xcode = false
+      case MacOS.version
+        when "10.15" then recent_xcode = MacOS::Xcode.version.major_minor >= ::Version.new("12.1")
+        when "10.14" then recent_xcode = MacOS::Xcode.version.major_minor >= ::Version.new("11.3")
+      end
       MacOS::Xcode.installed? &&
       MacOS::Xcode.default_prefix? &&
       MacOS::CLT.installed? &&
+      recent_xcode &&
       MacOS::Xcode.version.major_minor == MacOS::CLT.version.major_minor
     end
   end
