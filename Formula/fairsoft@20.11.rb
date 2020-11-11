@@ -63,6 +63,7 @@ class FairsoftAT2011 < Formula
   depends_on "xrootd"
   depends_on "xxhash"
   depends_on "xz"
+  depends_on "yaml-cpp"
   depends_on "zstd"
 
   uses_from_macos "bzip2"
