@@ -68,7 +68,7 @@ class FairsoftAT2011 < Formula
 
   keg_only nil,
     <<~EOS
-      it has a separate consumption mechanism via the SIMPATH environment variable.
+      it has a separate consumption mechanism via the SIMPATH environment variable
     EOS
 
   def caveats
