@@ -7,11 +7,10 @@ class FairsoftAT2011 < Formula
   license "LGPL-3.0+"
   version "nov20"
 
-  # bottle do
-    # root_url "https://alfa-ci.gsi.de/packages"
-    # sha256 "ef5cc9a9a55120f5f5d4026ca176f8e47d3c54e5724e2876c1ee6d53e35ba1af" => :catalina
-    # sha256 "92045e9cf01a249bbcc6c88813ee788c310d044ff4871a89c88764d7a287610e" => :mojave
-  # end
+  bottle do
+    root_url "https://alfa-ci.gsi.de/packages"
+    sha256 "43886e6b194616b76a4fface1ca90a9d4b2ee524af439c9d38487cc3a03a75fe" => :big_sur
+  end
 
   pour_bottle? do
     reason "The bottle requires a recent XCode CLT (CommandLineTools) version. Run 'brew update && brew doctor' and follow the update instructions."
