@@ -3,35 +3,31 @@ class FairsoftAT2011 < Formula
   homepage "https://github.com/FairRootGroup/FairSoft"
   url "https://github.com/FairRootGroup/FairSoft",
     :using => :git,
-    :revision => "03752388523bf8c97defb89bd6e99bcf8394737f"
+    :revision => "db2c7ba479f290a7cc43557f405fda8010b026be"
   license "LGPL-3.0+"
-  version "20.11rc"
+  version "nov20"
 
-  bottle do
-    root_url "https://alfa-ci.gsi.de/packages"
-    sha256 "ef5cc9a9a55120f5f5d4026ca176f8e47d3c54e5724e2876c1ee6d53e35ba1af" => :catalina
-    sha256 "92045e9cf01a249bbcc6c88813ee788c310d044ff4871a89c88764d7a287610e" => :mojave
-  end
+  # bottle do
+    # root_url "https://alfa-ci.gsi.de/packages"
+    # sha256 "ef5cc9a9a55120f5f5d4026ca176f8e47d3c54e5724e2876c1ee6d53e35ba1af" => :catalina
+    # sha256 "92045e9cf01a249bbcc6c88813ee788c310d044ff4871a89c88764d7a287610e" => :mojave
+  # end
 
   pour_bottle? do
-    reason "The bottle requires recent XCode and matching XCode CLT (CommandLineTools) versions. Run 'brew update && brew doctor' and follow the update instructions."
+    reason "The bottle requires a recent XCode CLT (CommandLineTools) version. Run 'brew update && brew doctor' and follow the update instructions."
     satisfy do
-      recent_xcode = false
+      recent_clt = false
       case MacOS.version
-        when "10.15" then recent_xcode = MacOS::Xcode.version.major_minor >= ::Version.new("12.1")
-        when "10.14" then recent_xcode = MacOS::Xcode.version.major_minor >= ::Version.new("11.3")
+        when "11.0" then recent_clt = MacOS::Xcode.version.major_minor >= ::Version.new("12")
+        when "10.15" then recent_clt = MacOS::Xcode.version.major_minor >= ::Version.new("12")
       end
-      MacOS::Xcode.installed? &&
-      MacOS::Xcode.default_prefix? &&
-      MacOS::CLT.installed? &&
-      recent_xcode &&
-      MacOS::Xcode.version.major_minor == MacOS::CLT.version.major_minor
+      MacOS::CLT.installed? && recent_clt
     end
   end
-#
+
   resource "source_cache" do
-    url "https://alfa-ci.gsi.de/packages/FairSoft_source_cache_full_nov20rc.tar.gz"
-    sha256 "a4ea867d57fe28d0a866ae8e2d66f2e8d55b09312c843c7a4da6d1545d01457c"
+    url "https://alfa-ci.gsi.de/packages/FairSoft_source_cache_full_nov20.tar.gz"
+    sha256 "3aa53451d616ceef2e2dc74f6d55c71f0be89a01286d0c93f0dfca873933d399"
   end
 
   depends_on :xcode
@@ -80,9 +76,7 @@ class FairsoftAT2011 < Formula
   def caveats
     <<~EOS
       Choose this FairSoft installation by exporting the SIMPATH environment variable
-      before configuring and building FairRoot, e.g.:
-        export SIMPATH=#{prefix}
-      or
+      before configuring and building FairRoot, e.g.
         export SIMPATH=$(brew --prefix #{name})
     EOS
   end
