@@ -13,7 +13,7 @@ class FairsoftAT2011 < Formula
   end
 
   pour_bottle? do
-    reason "The bottle requires a recent XCode CLT (CommandLineTools) version. Run 'brew update && brew doctor' and follow the update instructions."
+    reason "The bottle requires CommandLineTools for Xcode 12+."
     satisfy do
       recent_clt = false
       case MacOS.version
