@@ -29,7 +29,6 @@ class FairsoftAT2011 < Formula
     sha256 "3aa53451d616ceef2e2dc74f6d55c71f0be89a01286d0c93f0dfca873933d399"
   end
 
-  depends_on :xcode
   depends_on :x11
   depends_on "cmake"
   depends_on "cfitsio"
