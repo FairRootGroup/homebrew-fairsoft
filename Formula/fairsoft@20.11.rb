@@ -3,15 +3,15 @@ class FairsoftAT2011 < Formula
   homepage "https://github.com/FairRootGroup/FairSoft"
   url "https://github.com/FairRootGroup/FairSoft",
     :using => :git,
-    :revision => "7e1412f4335f8b86dd2b80d6a484da251d3ed01f"
+    :revision => "29fd8ef0a1c54139714b141489d6e6f8f727aaed"
   license "LGPL-3.0+"
-  version "nov20"
+  version "nov20p1"
 
-  bottle do
-    root_url "https://alfa-ci.gsi.de/packages"
-    sha256 "43886e6b194616b76a4fface1ca90a9d4b2ee524af439c9d38487cc3a03a75fe" => :big_sur
-    sha256 "e5828f10ea2fab86b1b11552e6be75dc72ab42b412bbfeeeb53533160e69ac30" => :catalina
-  end
+  # bottle do
+    # root_url "https://alfa-ci.gsi.de/packages"
+    # sha256 "43886e6b194616b76a4fface1ca90a9d4b2ee524af439c9d38487cc3a03a75fe" => :big_sur
+    # sha256 "e5828f10ea2fab86b1b11552e6be75dc72ab42b412bbfeeeb53533160e69ac30" => :catalina
+  # end
 
   pour_bottle? do
     reason "The bottle requires CommandLineTools for Xcode 12+."
@@ -40,6 +40,7 @@ class FairsoftAT2011 < Formula
   depends_on "ftgl"
   depends_on "gcc"
   depends_on "gl2ps"
+  depends_on "gpatch"
   depends_on "graphviz"
   depends_on "gsl"
   depends_on "libjpeg"
@@ -90,6 +91,7 @@ class FairsoftAT2011 < Formula
     args << "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
     args << "-DSOURCE_CACHE=#{cache}"
     args << "-DPYTHON_EXECUTABLE=#{Formula["python"].opt_bin}/python3"
+    args << "-DICU_ROOT=#{Formula["icu4c"].prefix}"
     system "cmake", "-S", ".", "-B", builddir, *args
 
     # Fix the built-in libAfterImage in ROOT to support prefix containing the '@' char
