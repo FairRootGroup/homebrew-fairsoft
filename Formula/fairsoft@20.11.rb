@@ -49,6 +49,7 @@ class FairsoftAT2011 < Formula
   depends_on "libjpeg"
   depends_on "libpng"
   depends_on "libtiff"
+  depends_on "libxfont"
   depends_on "libxft"
   depends_on "libxmu"
   depends_on "libxpm"
