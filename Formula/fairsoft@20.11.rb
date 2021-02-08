@@ -3,7 +3,7 @@ class FairsoftAT2011 < Formula
   homepage "https://github.com/FairRootGroup/FairSoft"
   url "https://github.com/FairRootGroup/FairSoft",
     :using => :git,
-    :revision => "6492ec739a8063f45994cebf6e64773a5270dc10"
+    :revision => "b428490e4c1d3c9ee8d00c57297ea06269c86199"
   license "LGPL-3.0+"
   version "nov20p1"
 
@@ -44,6 +44,7 @@ class FairsoftAT2011 < Formula
   depends_on "glew"
   depends_on "gpatch"
   depends_on "graphviz"
+  depends_on "grpc"
   depends_on "gsl"
   depends_on "libjpeg"
   depends_on "libpng"
