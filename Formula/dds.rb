@@ -32,7 +32,7 @@ class Dds < Formula
   def install
     inreplace "CMakeLists.txt", "set(DDS_BOOST_LIB_DIR ${Boost_LIBRARY_DIR})",
                                 "set(DDS_BOOST_LIB_DIR ${Boost_LIBRARY_DIRS})"
-    inreplace "CMakeLists.txt", "if(ENV{DDS_LD_LIBRARY_PATH})"
+    inreplace "CMakeLists.txt", "if(ENV{DDS_LD_LIBRARY_PATH})",
                                 "if(DEFINED ENV{DDS_LD_LIBRARY_PATH})"
     ENV["DDS_LD_LIBRARY_PATH"] = Formula["icu4c"].lib
 
