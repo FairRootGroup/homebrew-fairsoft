@@ -32,6 +32,7 @@ class Fairlogger < Formula
   def install
     builddir = "build"
     args = std_cmake_args.reject{ |e| e =~ /CMAKE_(CX*_FLAGS|BUILD_TYPE|VERBOSE_MAKEFILE)/ }
+    args << "-GNinja"
     args << "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
     args << "-DUSE_BOOST_PRETTY_FUNCTION=ON"
     args << "-DUSE_EXTERNAL_FMT=ON"
