@@ -3,9 +3,9 @@ class Asiofi < Formula
   homepage "http://github.com/FairRootGroup/asiofi"
   url "https://github.com/FairRootGroup/asiofi",
     :using => :git,
-    :revision => "652ddb827eb4f8c27f188cccbe3f1719652322c4"
+    :revision => "ad10c5d634aa26671e65d4e7b97b7167b6ce3c99"
   license "LGPL-3.0+"
-  version "0.4.3"
+  version "0.3.3"
 
   bottle do
     root_url "https://alfa-ci.gsi.de/packages"
@@ -28,7 +28,6 @@ class Asiofi < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "boost"
-  depends_on "folly"
   depends_on "libfabric"
 
   def install
