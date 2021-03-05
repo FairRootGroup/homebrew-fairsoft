@@ -37,8 +37,8 @@ class Dds < Formula
     args = std_cmake_args.reject{ |e| e =~ /CMAKE_(CX*_FLAGS|BUILD_TYPE|VERBOSE_MAKEFILE)/ }
     args << "-GNinja"
     args << "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
-    args << "-DENV_LD_LIBRARY_PATH=#{Formula["icu4c"].opt_lib}"
-    system "cmake", "-S", ".", "-B", builddir, *args
+    system {"DDS_LD_LIBRARY_PATH": Formula["icu4c"].lib},
+           "cmake", "-S", ".", "-B", builddir, *args
     system "cmake", "--build", builddir, "--target", "wn_bin"
     system "cmake", "--build", builddir, "--target", "install"
   end
