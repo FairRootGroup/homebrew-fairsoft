@@ -32,6 +32,7 @@ class Dds < Formula
   def install
     inreplace "CMakeLists.txt", "set(DDS_BOOST_LIB_DIR ${Boost_LIBRARY_DIR})",
                                 "set(DDS_BOOST_LIB_DIR ${Boost_LIBRARY_DIRS})"
+    ENV["DDS_LD_LIBRARY_PATH"] = Formula["icu4c"].opt_lib
 
     builddir = "build"
     args = std_cmake_args.reject{ |e| e =~ /CMAKE_(CX*_FLAGS|BUILD_TYPE|VERBOSE_MAKEFILE)/ }
