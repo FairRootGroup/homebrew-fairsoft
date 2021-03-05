@@ -9,8 +9,8 @@ class Asiofi < Formula
 
   bottle do
     root_url "https://alfa-ci.gsi.de/packages"
-    # sha256 big_sur: "c8a7eaf7f475e0f71b6968191f663f741444d8a5d5213ef9c2d9ca03ed942861"
-    # sha256 catalina: "fb3602de380e704acf12663ac1a2d69e4dc400cb36ca77e0d998556927b0403c"
+    sha256 catalina: "eea94fd81000c8e8686b57847ad1110c9806192dd1a9f0661d77198cfbb42e15"
+    sha256 big_sur: "bd4984a29ade5f04bd7ba37d6b61c80551a0663e774bfc4eb820c6c6cbecb3d0"
   end
 
   pour_bottle? do
