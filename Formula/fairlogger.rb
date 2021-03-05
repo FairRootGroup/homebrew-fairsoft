@@ -10,6 +10,7 @@ class Fairlogger < Formula
   bottle do
     root_url "https://alfa-ci.gsi.de/packages"
     sha256 big_sur: "af9753bce01e58f83f53a2683735528007120ae2fcb2fc955d1c6d05a6c116b3"
+    sha256 catalina: "1d0d7a46a217f097df0ecf7b86823559509dd6bfc4b662fb91c81c3d3d0cc67d"
   end
 
   pour_bottle? do
