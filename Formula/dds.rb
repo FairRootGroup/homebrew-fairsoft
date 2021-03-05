@@ -34,6 +34,7 @@ class Dds < Formula
                                 "set(DDS_BOOST_LIB_DIR ${Boost_LIBRARY_DIRS})"
     inreplace "CMakeLists.txt", "if(ENV{DDS_LD_LIBRARY_PATH})",
                                 "if(DEFINED ENV{DDS_LD_LIBRARY_PATH})"
+    inreplace "cmake/DDSConfig.cmake.in", "set_and_check", "set"
     ENV["DDS_LD_LIBRARY_PATH"] = Formula["icu4c"].lib
 
     builddir = "build"
