@@ -1,4 +1,4 @@
-class DDS < Formula
+class Dds < Formula
   desc "The Dynamic Deployment System"
   homepage "http://dds.gsi.de"
   url "https://github.com/FairRootGroup/DDS",
