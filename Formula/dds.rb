@@ -29,16 +29,14 @@ class Dds < Formula
   depends_on "ninja" => :build
   depends_on "boost"
 
-  def install
-    inreplace "CMakeLists.txt", "set(DDS_BOOST_LIB_DIR ${Boost_LIBRARY_DIR})",
-                                "set(DDS_BOOST_LIB_DIR ${Boost_LIBRARY_DIRS})"
-    inreplace "CMakeLists.txt", "if(ENV{DDS_LD_LIBRARY_PATH})",
-                                "if(DEFINED ENV{DDS_LD_LIBRARY_PATH})"
-    inreplace "cmake/DDSConfig.cmake.in", "set_and_check", "set"
-    ENV["DDS_LD_LIBRARY_PATH"] = Formula["icu4c"].lib
+  patch do
+    url "https://raw.githubusercontent.com/FairRootGroup/FairSoft/56264b8e496302c4cbc09e543f5663c5698359d3/patches/dds/fix_wn_bin_master.patch"
+    sha256 "3e0631c54c3edc8e3c944686484a304127d9797c0359047efd0273391bebff79"
+  end
 
+  def install
     builddir = "build"
-    args = std_cmake_args.reject{ |e| e =~ /CMAKE_(CX*_FLAGS|BUILD_TYPE|VERBOSE_MAKEFILE)/ }
+    args = std_cmake_args.reject{ |e| e =~ /CMAKE_BUILD_TYPE/ }
     args << "-GNinja"
     args << "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
     system "cmake", "-S", ".", "-B", builddir, *args
