@@ -9,8 +9,8 @@ class Odc < Formula
 
   bottle do
     root_url "https://alfa-ci.gsi.de/packages"
-    sha256 big_sur: "77c1ba768f40ec2e2a012f3c82cc3d57484c9e2a505ee7a60f52c473bc539a7f"
-    sha256 catalina: "d8f75700ae40d370cbdc2a3895ee10673ec7f6570325a0968aa7a4f8807657cb"
+    sha256 big_sur: "ed90233471a0e19861472a94ff30b39de3eb8e63f58884c2666b06b6e29b1916"
+    sha256 catalina: "855006fca79385b2872d7d40f804d2acf902771353e6c93b3826f0944e8166ae"
   end
 
   pour_bottle? do
