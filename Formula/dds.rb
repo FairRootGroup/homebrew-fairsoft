@@ -25,6 +25,11 @@ class Dds < Formula
     end
   end
 
+  keg_only nil,
+    <<~EOS
+      its install tree is not FHS-compliant which breaks brew's package linking mechanism
+    EOS
+
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "boost"
