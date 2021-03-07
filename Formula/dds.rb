@@ -9,8 +9,8 @@ class Dds < Formula
 
   bottle do
     root_url "https://alfa-ci.gsi.de/packages"
-    sha256 big_sur: "8e6ed38987f4a43561f00c2fab9cb5e201a9004087f598b4e66a252265de505c"
-    sha256 catalina: "5629683cdd43a0cbb3aee2e69750dbbb972d8fe2ff48121c8d2ed49d7e01593e"
+    sha256 big_sur: "a9941716520d1184e26fa665fa3a96cb08a87c3acb315a7fe9756a206a934d49"
+    sha256 catalina: "e62bd6572f4be86cdfb5ff2bf62a057d2f20cb9735517a0264cfefb537fccc54"
   end
 
   pour_bottle? do
