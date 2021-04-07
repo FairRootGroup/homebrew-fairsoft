@@ -80,12 +80,27 @@ class FairsoftAT214 < Formula
   end
 
   def install
-    # Work around "error: no member named 'signbit' in the global namespace"
-    # ENV.delete("SDKROOT") if DevelopmentTools.clang_build_version >= 900
+    # Prevents embedding the brew compiler wrapper path in some root artifacts
+    inreplace "#{Dir.pwd}/cmake/legacy.cmake",
+      /^      \$\{root_cocoa\}/,
+       "      ${root_cocoa}\n      \"-DCLING_CXX_PATH=#{ENV.cxx}\""
+
+    # Prevents embedding the brew compiler wrapper path in some pythia8 artifacts
+    inreplace "#{Dir.pwd}/cmake/legacy.cmake",
+      /^      "--cxx=\$\{CMAKE_CXX_COMPILER\}"/,
+       "      \"--cxx=#{ENV.cxx}\""
+
+    # Prevents embedding the brew compiler wrapper path in some fairsoft-config artifacts
+    inreplace "#{Dir.pwd}/cmake/legacy.cmake",
+      /^    "-DFAIRSOFT_VERSION=apr21"/,
+       "    \"-DFAIRSOFT_VERSION=apr21\" " +
+           "\"-DCMAKE_C_COMPILER=/usr/bin/#{ENV.cc}\" " +
+           "\"-DCMAKE_CXX_COMPILER=/usr/bin/#{ENV.cxx}\" " +
+           "\"-DCMAKE_Fortran_COMPILER=#{HOMEBREW_PREFIX}/bin/gfortran\""
 
     builddir = "build"
     cache = resource("source_cache").cached_download
-    args = std_cmake_args.reject{ |e| e =~ /CMAKE_(CX*_FLAGS|BUILD_TYPE|VERBOSE_MAKEFILE)/ }
+    args = std_cmake_args.reject{ |e| e =~ /CMAKE_(CX*_FLAGS|BUILD_TYPE)/ }
     args << "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
     args << "-DSOURCE_CACHE=#{cache}"
     args << "-DPYTHON_EXECUTABLE=#{Formula["python"].opt_bin}/python3"
@@ -99,6 +114,9 @@ class FairsoftAT214 < Formula
       inreplace aic, %{#{var}=`echo $#{var}|sed -e "s@\\^\\.\\.@${currdir}@" -e "s@^autoconf@${currdir}/autoconf@"`},
                      %{#{var}=`echo $#{var}|sed -e "s%\\^\\.\\.%${currdir}%" -e "s%^autoconf%${currdir}/autoconf%"`}
     end
+
+    # Workaround the shim directory being embedded into the output
+    inreplace "#{builddir}/Source/root/build/unix/compiledata.sh", "`type -path $CXX`", ENV.cxx
 
     system "cmake", "--build", builddir
   end
