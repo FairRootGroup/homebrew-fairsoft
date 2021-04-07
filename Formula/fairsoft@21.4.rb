@@ -21,7 +21,7 @@ class FairsoftAT214 < Formula
   end
 
   resource "source_cache" do
-    url "https://alfa-ci.gsi.de/packages/FairSoft_source_cache_full_apr21_0381030.tar.gz"
+    url "https://alfa-ci.gsi.de/packages/FairSoft_source_cache_full_apr21.tar.gz"
     sha256 "53343f4430e17a38cb9c50ffc99291e0fc822b0268a77313941fa6745ffcf166"
   end
 
