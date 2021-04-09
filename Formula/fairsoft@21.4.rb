@@ -7,11 +7,11 @@ class FairsoftAT214 < Formula
   license "LGPL-3.0+"
   version "apr21"
 
-  # bottle do
-    # root_url "https://alfa-ci.gsi.de/packages"
-    # sha256 "43886e6b194616b76a4fface1ca90a9d4b2ee524af439c9d38487cc3a03a75fe" => :big_sur
-    # sha256 "e5828f10ea2fab86b1b11552e6be75dc72ab42b412bbfeeeb53533160e69ac30" => :catalina
-  # end
+  bottle do
+    root_url "https://alfa-ci.gsi.de/packages"
+    sha256 big_sur: "cafedae81381cb486f0c8f34f59df32af8dc254b2527d29168d63a18b3bb334c"
+    sha256 catalina: "0b6c2f7c3c5896f0492406a263229f795cf8e3e5df421bac91ef7777984ac6f5"
+  end
 
   pour_bottle? do
     reason "The bottle requires CommandLineTools for Xcode 12+."
