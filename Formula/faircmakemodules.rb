@@ -7,11 +7,11 @@ class Faircmakemodules < Formula
   license "LGPL-3.0+"
   version "0.1.0"
 
-  # bottle do
-    # root_url "https://alfa-ci.gsi.de/packages"
-    # sha256 big_sur: "af9753bce01e58f83f53a2683735528007120ae2fcb2fc955d1c6d05a6c116b3"
-    # sha256 catalina: "1d0d7a46a217f097df0ecf7b86823559509dd6bfc4b662fb91c81c3d3d0cc67d"
-  # end
+  bottle do
+    root_url "https://alfa-ci.gsi.de/packages/brew"
+    sha256 cellar: :any_skip_relocation, big_sur: "8f1a4612d77341651f98aa225c5a64aa9e8ee04a67dcc0670f1216ce5b6b5157"
+    sha256 cellar: :any_skip_relocation, catalina: "2aa7900b013bea3233cba3148c2c889cddf22ad14c986162a5a914b684e4acf9"
+  end
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
