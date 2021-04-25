@@ -18,6 +18,7 @@ class Faircmakemodules < Formula
 
   def install
     builddir = "build"
+    args = std_cmake_args
     args << "-GNinja"
     system "cmake", "-S", ".", "-B", builddir, *args
     system "cmake", "--build", builddir, "--target", "install"
