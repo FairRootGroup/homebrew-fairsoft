@@ -36,10 +36,22 @@ class Dds < Formula
   depends_on "boost"
 
   def install
+    # workaround bugs in wn_bin target (fix proposed in https://github.com/FairRootGroup/DDS/pull/354)
+    inreplace "#{Dir.pwd}/CMakeLists.txt",
+      /^set\(DDS_BOOST_LIB_DIR \$\{Boost_LIBRARY_DIR\}\)$/,
+       'set(DDS_BOOST_LIB_DIR ${Boost_LIBRARY_DIRS})'
+    inreplace "#{Dir.pwd}/CMakeLists.txt",
+      /^if\(ENV\{DDS_LD_LIBRARY_PATH\}\)$/,
+       'if(DDS_LD_LIBRARY_PATH)'
+    inreplace "#{Dir.pwd}/CMakeLists.txt",
+      /^  file\(TO_CMAKE_PATH "\$ENV\{DDS_LD_LIBRARY_PATH\}" ENV_LD_LIBRARY_PATH\)$/,
+       '  file(TO_CMAKE_PATH "${DDS_LD_LIBRARY_PATH}" ENV_LD_LIBRARY_PATH)'
+
     builddir = "build"
     args = std_cmake_args.reject{ |e| e =~ /CMAKE_BUILD_TYPE/ }
     args << "-GNinja"
     args << "-DCMAKE_BUILD_TYPE=Release"
+    args << "-DDDS_LD_LIBRARY_PATH=#{Formula["icu4c"].prefix}/lib"
     system "cmake", "-S", ".", "-B", builddir, *args
     system "cmake", "--build", builddir, "--target", "wn_bin"
     system "cmake", "--build", builddir, "--target", "install"
