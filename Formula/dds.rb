@@ -42,10 +42,6 @@ class Dds < Formula
   end
 
   def install
-    inreplace "#{Dir.pwd}/CMakeLists.txt",
-      /^set\(DDS_BOOST_LIB_DIR \$\{Boost_LIBRARY_DIR\}\)$/,
-       'set(DDS_BOOST_LIB_DIR ${Boost_LIBRARY_DIRS})'
-
     builddir = "build"
     args = std_cmake_args.reject{ |e| e =~ /CMAKE_BUILD_TYPE/ }
     args << "-GNinja"
