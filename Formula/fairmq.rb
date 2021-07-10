@@ -3,16 +3,16 @@ class Fairmq < Formula
   homepage "http://github.com/FairRootGroup/FairMQ"
   url "https://github.com/FairRootGroup/FairMQ",
     :using => :git,
-    :revision => "bbc1dd460035c0ffe22aa9d0c506d6e59b333315"
+    :revision => "9bf908fb52df5af0299fcebb7826cfd33cdd05d6"
   license "LGPL-3.0+"
-  version "1.4.32"
+  version "1.4.38"
 
-  bottle do
-    root_url "https://alfa-ci.gsi.de/packages/brew"
-    rebuild 1
-    sha256 cellar: :any, big_sur: "1c9fc818f1261eb28597f480e6afaf17a7b1e4644bf3214b1f96a9020879501b"
-    sha256 cellar: :any, catalina: "1eeaf16639f71ecf2e44b365b0122c3eba1203e34550b4eff4f6cc4f4125750f"
-  end
+  # bottle do
+    # root_url "https://alfa-ci.gsi.de/packages/brew"
+    # rebuild 1
+    # sha256 cellar: :any, big_sur: "1c9fc818f1261eb28597f480e6afaf17a7b1e4644bf3214b1f96a9020879501b"
+    # sha256 cellar: :any, catalina: "1eeaf16639f71ecf2e44b365b0122c3eba1203e34550b4eff4f6cc4f4125750f"
+  # end
 
   pour_bottle? do
     reason "The bottle requires CommandLineTools for Xcode 12+."
@@ -28,11 +28,8 @@ class Fairmq < Formula
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
-  depends_on "asiofi"
   depends_on "boost"
-  depends_on "dds"
   depends_on "fairlogger"
-  depends_on "flatbuffers"
   depends_on "zeromq"
 
 
@@ -41,10 +38,6 @@ class Fairmq < Formula
     args = std_cmake_args.reject{ |e| e =~ /CMAKE_(CX*_FLAGS|BUILD_TYPE|VERBOSE_MAKEFILE)/ }
     args << "-GNinja"
     args << "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
-    args << "-DBUILD_OFI_TRANSPORT=ON"
-    args << "-DBUILD_SDK_COMMANDS=ON"
-    args << "-DBUILD_SDK=ON"
-    args << "-DBUILD_DDS_PLUGIN=ON"
     system "cmake", "-S", ".", "-B", builddir, *args
     system "cmake", "--build", builddir, "--target", "install"
   end
