@@ -37,8 +37,8 @@ class Dds < Formula
 
   patch do
       # workaround bugs in wn_bin target (fix proposed in https://github.com/FairRootGroup/DDS/pull/354)
-      url "https://raw.githubusercontent.com/FairRootGroup/FairSoft/e752185a8caf74627da9436883d6d78818ecb622/repos/fairsoft/packages/dds/fix_wn_bin_master.patch"
-      sha256 "3e0631c54c3edc8e3c944686484a304127d9797c0359047efd0273391bebff79"
+      url "https://raw.githubusercontent.com/FairRootGroup/FairSoft/826b979385957fc92d6ef91910208b4e4e9d6312/repos/fairsoft/packages/dds/fix_wn_bin_master.patch"
+      sha256 "846d1bebc6c8b30ff14f8d2c3a8625639fe0e00399d052a6d7fdde0d9cb4dd89"
   end
 
   def install
