@@ -35,7 +35,6 @@ class Fairroot < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "faircmakemodules" => :build
   depends_on "ninja" => :build
   depends_on "fairsoft"
 
@@ -44,7 +43,7 @@ class Fairroot < Formula
     args = std_cmake_args.reject{ |e| e =~ /CMAKE_(CX*_FLAGS|BUILD_TYPE|VERBOSE_MAKEFILE)/ }
     args << "-GNinja"
     args << "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
-    args << "-DCMAKE_PREFIX_PATH=#{Formula["icu4c"].prefix}"
+    args << "-DCMAKE_PREFIX_PATH=#{Formula["fairsoft"].prefix}"
     system "cmake", "-S", ".", "-B", builddir, *args
     system "cmake", "--build", builddir, "--target", "install"
   end
