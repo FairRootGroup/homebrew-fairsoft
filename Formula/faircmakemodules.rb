@@ -9,8 +9,8 @@ class Faircmakemodules < Formula
 
   bottle do
     root_url "https://alfa-ci.gsi.de/packages/brew"
-    #sha256 cellar: :any_skip_relocation, big_sur: "7b151289aea75ad8ef39ea0a542e640fbf7c1f589f44883a05853c2adc919314"
-    #sha256 cellar: :any_skip_relocation, catalina: "7adfbb9cd1f8922697d9307e70b69d0d89b7b7e183f2d950db4c81b12e9cf5ef"
+    sha256 cellar: :any_skip_relocation, catalina: "4b3512d3b8cc59fb2d78ec794efb5b424e6e59897b5eef6dc8bba19947e373e7"
+    sha256 cellar: :any_skip_relocation, big_sur: "b07304119d762acce4dbebd56b7511c103c087d354f3f96bc01ea73f9b8da416"
   end
 
   depends_on "cmake" => :build
