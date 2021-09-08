@@ -3,9 +3,9 @@ class Dds < Formula
   homepage "http://dds.gsi.de"
   url "https://github.com/FairRootGroup/DDS",
     :using => :git,
-    :revision => "85aee1f7e34d3648cd6c5fb7439f0482583031a0"
+    :revision => "2bb197d7080521c81f35b8e75dbadecc40f7cc8b"
   license "LGPL-3.0+"
-  version "3.5.14"
+  version "3.5.16"
 
   # bottle do
     # root_url "https://alfa-ci.gsi.de/packages/brew"
@@ -16,14 +16,7 @@ class Dds < Formula
 
   pour_bottle? do
     reason "The bottle requires CommandLineTools for Xcode 12+."
-    satisfy do
-      recent_clt = false
-      case MacOS.version
-        when "11.0" then recent_clt = MacOS::Xcode.version.major_minor >= ::Version.new("12")
-        when "10.15" then recent_clt = MacOS::Xcode.version.major_minor >= ::Version.new("12")
-      end
-      MacOS::CLT.installed? && recent_clt
-    end
+    satisfy MacOS::CLT.installed?
   end
 
   keg_only nil,
@@ -36,9 +29,9 @@ class Dds < Formula
   depends_on "boost"
 
   patch do
-      # workaround bugs in wn_bin target (fix proposed in https://github.com/FairRootGroup/DDS/pull/354)
-      url "https://raw.githubusercontent.com/FairRootGroup/FairSoft/826b979385957fc92d6ef91910208b4e4e9d6312/repos/fairsoft/packages/dds/fix_wn_bin_master.patch"
-      sha256 "846d1bebc6c8b30ff14f8d2c3a8625639fe0e00399d052a6d7fdde0d9cb4dd89"
+    # workaround bugs in wn_bin target (fix proposed in https://github.com/FairRootGroup/DDS/pull/354)
+    url "https://github.com/ChristianTackeGSI/DDS/commit/2355a73d5cfda4f9bab6bc27d1a166f4e26ce564.diff"
+    sha256 "0044c44d5c9db164f3f8f1711f82f1a7c3f0c459ce790ba6ce89e94a8cc54558"
   end
 
   def install
