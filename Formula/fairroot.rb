@@ -15,7 +15,7 @@ class Fairroot < Formula
 
   pour_bottle? do
     reason "The bottle requires CommandLineTools for Xcode 12+."
-    satisfy MacOS::CLT.installed?
+    satisfy { MacOS::CLT.installed? }
   end
 
   keg_only nil,

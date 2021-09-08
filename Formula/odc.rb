@@ -15,9 +15,7 @@ class Odc < Formula
 
   pour_bottle? do
     reason "The bottle requires CommandLineTools for Xcode 12+."
-    satisfy do
-      MacOS::CLT.installed?
-    end
+    satisfy { MacOS::CLT.installed? }
   end
 
   depends_on "cmake" => :build
