@@ -3,9 +3,9 @@ class Fairmq < Formula
   homepage "http://github.com/FairRootGroup/FairMQ"
   url "https://github.com/FairRootGroup/FairMQ",
     :using => :git,
-    :revision => "9bf908fb52df5af0299fcebb7826cfd33cdd05d6"
+    :revision => "bce380d87166530c354b0a376481fcc5e16bdd10"
   license "LGPL-3.0+"
-  version "1.4.38"
+  version "1.4.41"
 
   # bottle do
     # root_url "https://alfa-ci.gsi.de/packages/brew"
@@ -27,11 +27,11 @@ class Fairmq < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "faircmakemodules" => :build
   depends_on "ninja" => :build
   depends_on "boost"
   depends_on "fairlogger"
   depends_on "zeromq"
-
 
   def install
     builddir = "build"
