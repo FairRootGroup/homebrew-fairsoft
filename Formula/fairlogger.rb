@@ -7,17 +7,15 @@ class Fairlogger < Formula
   license "LGPL-3.0+"
   version "1.9.3"
 
-  # bottle do
-    # root_url "https://alfa-ci.gsi.de/packages"
-    # sha256 big_sur: "af9753bce01e58f83f53a2683735528007120ae2fcb2fc955d1c6d05a6c116b3"
-    # sha256 catalina: "1d0d7a46a217f097df0ecf7b86823559509dd6bfc4b662fb91c81c3d3d0cc67d"
-  # end
+  bottle do
+    root_url "https://alfa-ci.gsi.de/packages/brew"
+    sha256 cellar: :any, catalina: "61c62a141cd3314b3a16b2cc63be69c5a00974c227dfe4266f25db8102a8ca64"
+    sha256 cellar: :any, big_sur: "526bb7e6fe417c874d7241fd89d5de09be6452f766d3ab1fa58a84326d2c7612"
+  end
 
   pour_bottle? do
     reason "The bottle requires CommandLineTools for Xcode 12+."
-    satisfy do
-      MacOS::CLT.installed?
-    end
+    satisfy { MacOS::CLT.installed? }
   end
 
   depends_on "cmake" => :build
