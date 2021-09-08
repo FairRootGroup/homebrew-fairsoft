@@ -3,9 +3,9 @@ class Asio < Formula
   homepage "https://github.com/chriskohlhoff/asio"
   url "https://github.com/FairRootGroup/asio",
     :using => :git,
-    :revision => "78a1032eaf01515941d4baf9c38c69610aa5a614"
+    :revision => "e108d24ec1aaa7611d0fbb0de91237068c9ad9f9"
   license "BSL-1.0"
-  version "1.19.1"
+  version "1.19.2"
 
   # bottle do
     # root_url "https://alfa-ci.gsi.de/packages/brew"
