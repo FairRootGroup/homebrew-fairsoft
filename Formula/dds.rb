@@ -7,12 +7,11 @@ class Dds < Formula
   license "LGPL-3.0+"
   version "3.5.16"
 
-  # bottle do
-    # root_url "https://alfa-ci.gsi.de/packages/brew"
-    # rebuild 1
-    # sha256 big_sur: "295e0c696c211b5327161f251c50d87a512912e4bd0d24c736167b652c88551c"
-    # sha256 catalina: "1f825b6d5907fa26a2434d7dfe80da1bdd69fa03b743d898672bda78c7216912"
-  # end
+  bottle do
+    root_url "https://alfa-ci.gsi.de/packages/brew"
+    sha256 catalina: "54760b98dfa9da5c1c6278de923f832ff9c312b6305cbac21a6b6a16778e5e23"
+    sha256 big_sur: "0adda8edf9142bff302130b0206a6a559e966837051cb1105d5701769349a097"
+  end
 
   pour_bottle? do
     reason "The bottle requires CommandLineTools for Xcode 12+."
