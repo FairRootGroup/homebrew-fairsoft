@@ -7,23 +7,15 @@ class Fairmq < Formula
   license "LGPL-3.0+"
   version "1.4.41"
 
-  # bottle do
-    # root_url "https://alfa-ci.gsi.de/packages/brew"
-    # rebuild 1
-    # sha256 cellar: :any, big_sur: "1c9fc818f1261eb28597f480e6afaf17a7b1e4644bf3214b1f96a9020879501b"
-    # sha256 cellar: :any, catalina: "1eeaf16639f71ecf2e44b365b0122c3eba1203e34550b4eff4f6cc4f4125750f"
-  # end
+  bottle do
+    root_url "https://alfa-ci.gsi.de/packages/brew"
+    sha256 cellar: :any, catalina: "dad80c3fd77848f6326354168ad7adc4b1aa6eac50c8725c092aa7cb1a17d783"
+    sha256 cellar: :any, big_sur: "13bbe754315a958aebcf34b8f9a0c8e8b779b139e404dc0e764f1645404016f4"
+  end
 
   pour_bottle? do
     reason "The bottle requires CommandLineTools for Xcode 12+."
-    satisfy do
-      recent_clt = false
-      case MacOS.version
-        when "11.0" then recent_clt = MacOS::Xcode.version.major_minor >= ::Version.new("12")
-        when "10.15" then recent_clt = MacOS::Xcode.version.major_minor >= ::Version.new("12")
-      end
-      MacOS::CLT.installed? && recent_clt
-    end
+    satisfy { MacOS::CLT.installed? }
   end
 
   depends_on "cmake" => :build
