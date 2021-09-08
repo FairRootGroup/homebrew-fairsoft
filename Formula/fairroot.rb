@@ -44,6 +44,7 @@ class Fairroot < Formula
     args << "-GNinja"
     args << "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
     args << "-DSIMPATH=#{Formula["fairsoft"].prefix}"
+    args << "-DCMAKE_CXX_STANDARD=17"
     system "cmake", "-S", ".", "-B", builddir, *args
     system "cmake", "--build", builddir, "--target", "install"
   end
