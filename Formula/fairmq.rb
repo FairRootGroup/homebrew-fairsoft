@@ -9,8 +9,8 @@ class Fairmq < Formula
 
   bottle do
     root_url "https://alfa-ci.gsi.de/packages/brew"
-    sha256 cellar: :any, catalina: "dad80c3fd77848f6326354168ad7adc4b1aa6eac50c8725c092aa7cb1a17d783"
-    sha256 cellar: :any, big_sur: "13bbe754315a958aebcf34b8f9a0c8e8b779b139e404dc0e764f1645404016f4"
+    rebuild 1
+    sha256 cellar: :any, big_sur: "21951422253b0b0c139402608138baeca36c6a42f59a991f5c914a855eec2e13"
   end
 
   pour_bottle? do
