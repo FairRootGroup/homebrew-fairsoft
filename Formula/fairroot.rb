@@ -7,18 +7,15 @@ class Fairroot < Formula
   license "LGPL-3.0+"
   version "18.6.4"
 
-  # bottle do
-    # root_url "https://alfa-ci.gsi.de/packages/brew"
-    # rebuild 1
-    # sha256 cellar: :any, big_sur: "1c9fc818f1261eb28597f480e6afaf17a7b1e4644bf3214b1f96a9020879501b"
-    # sha256 cellar: :any, catalina: "1eeaf16639f71ecf2e44b365b0122c3eba1203e34550b4eff4f6cc4f4125750f"
-  # end
+  bottle do
+    root_url "https://alfa-ci.gsi.de/packages/brew"
+    sha256 catalina: "741d8982de1a89cf42897c011e3a53a81d9dc7848e2ab86f526727d473b1ef38"
+    sha256 big_sur: "208a0d261a3a9213e4925e36a702755e06d14f194231e46b6e381047e15e2dc8"
+  end
 
   pour_bottle? do
     reason "The bottle requires CommandLineTools for Xcode 12+."
-    satisfy do
-      MacOS::CLT.installed?
-    end
+    satisfy MacOS::CLT.installed?
   end
 
   keg_only nil,
