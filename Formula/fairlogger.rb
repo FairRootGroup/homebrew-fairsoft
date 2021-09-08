@@ -3,25 +3,20 @@ class Fairlogger < Formula
   homepage "https://github.com/FairRootGroup/FairLogger"
   url "https://github.com/FairRootGroup/FairLogger",
     :using => :git,
-    :revision => "bcfe438862edc4047131a282c5e72a77d0b0d78c"
+    :revision => "13ebedca3d66e8e07e1481028c36dc19334e4b4e"
   license "LGPL-3.0+"
-  version "1.9.0"
+  version "1.9.3"
 
-  bottle do
-    root_url "https://alfa-ci.gsi.de/packages"
-    sha256 big_sur: "af9753bce01e58f83f53a2683735528007120ae2fcb2fc955d1c6d05a6c116b3"
-    sha256 catalina: "1d0d7a46a217f097df0ecf7b86823559509dd6bfc4b662fb91c81c3d3d0cc67d"
-  end
+  # bottle do
+    # root_url "https://alfa-ci.gsi.de/packages"
+    # sha256 big_sur: "af9753bce01e58f83f53a2683735528007120ae2fcb2fc955d1c6d05a6c116b3"
+    # sha256 catalina: "1d0d7a46a217f097df0ecf7b86823559509dd6bfc4b662fb91c81c3d3d0cc67d"
+  # end
 
   pour_bottle? do
     reason "The bottle requires CommandLineTools for Xcode 12+."
     satisfy do
-      recent_clt = false
-      case MacOS.version
-        when "11.0" then recent_clt = MacOS::Xcode.version.major_minor >= ::Version.new("12")
-        when "10.15" then recent_clt = MacOS::Xcode.version.major_minor >= ::Version.new("12")
-      end
-      MacOS::CLT.installed? && recent_clt
+      MacOS::CLT.installed?
     end
   end
 
