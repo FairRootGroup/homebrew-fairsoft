@@ -43,7 +43,7 @@ class Fairroot < Formula
     args = std_cmake_args.reject{ |e| e =~ /CMAKE_(CX*_FLAGS|BUILD_TYPE|VERBOSE_MAKEFILE)/ }
     args << "-GNinja"
     args << "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
-    args << "-DCMAKE_PREFIX_PATH=#{Formula["fairsoft"].prefix}"
+    args << "-DSIMPATH=#{Formula["fairsoft"].prefix}"
     system "cmake", "-S", ".", "-B", builddir, *args
     system "cmake", "--build", builddir, "--target", "install"
   end
