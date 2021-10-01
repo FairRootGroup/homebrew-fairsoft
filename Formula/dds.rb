@@ -12,6 +12,7 @@ class Dds < Formula
     rebuild 1
     sha256 catalina: "4657179abf104e7fa9dce744a4313b5e7e4ecaa58f99e8c43d7c978b053a04c6"
     sha256 big_sur: "e87bba1806f6f2a3494a82c8735eef4351df46f34612a25e9ba88330c9dee90a"
+    sha256 arm64_big_sur: "c12dfa586e731d149c07ff6162c67311216b4e7b1fc9454615645b71e350a413"
   end
 
   pour_bottle? do
