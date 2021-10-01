@@ -11,6 +11,7 @@ class Fairlogger < Formula
     root_url "https://alfa-ci.gsi.de/packages/brew"
     sha256 cellar: :any, catalina: "61c62a141cd3314b3a16b2cc63be69c5a00974c227dfe4266f25db8102a8ca64"
     sha256 cellar: :any, big_sur: "526bb7e6fe417c874d7241fd89d5de09be6452f766d3ab1fa58a84326d2c7612"
+    sha256 cellar: :any, arm64_big_sur: "587d83a3353dff85f07a354ab8171125b3ad10d00dc78bc2ba78ef3f0c9bb8f8"
   end
 
   pour_bottle? do
