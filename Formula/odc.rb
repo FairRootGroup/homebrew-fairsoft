@@ -25,6 +25,7 @@ class Odc < Formula
   depends_on "fairmq"
   depends_on "grpc"
   depends_on "protobuf"
+  depends_on "flatbuffers"
 
   def install
     builddir = "build"
