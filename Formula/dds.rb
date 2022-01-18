@@ -3,16 +3,16 @@ class Dds < Formula
   homepage "http://dds.gsi.de"
   url "https://github.com/FairRootGroup/DDS",
     :using => :git,
-    :revision => "b36525de128ad74e3d839c20b939359f9594c902"
+    :revision => "c71f8df77766c052441f8f3a89e948755a07c2a2"
   license "LGPL-3.0+"
-  version "3.5.18"
+  version "3.6"
 
   bottle do
     root_url "https://alfa-ci.gsi.de/packages/brew"
-    rebuild 1
-    sha256 catalina: "4657179abf104e7fa9dce744a4313b5e7e4ecaa58f99e8c43d7c978b053a04c6"
-    sha256 big_sur: "e87bba1806f6f2a3494a82c8735eef4351df46f34612a25e9ba88330c9dee90a"
-    sha256 arm64_big_sur: "c12dfa586e731d149c07ff6162c67311216b4e7b1fc9454615645b71e350a413"
+    # rebuild 1
+    # sha256 catalina: "4657179abf104e7fa9dce744a4313b5e7e4ecaa58f99e8c43d7c978b053a04c6"
+    # sha256 big_sur: "e87bba1806f6f2a3494a82c8735eef4351df46f34612a25e9ba88330c9dee90a"
+    # sha256 arm64_big_sur: "c12dfa586e731d149c07ff6162c67311216b4e7b1fc9454615645b71e350a413"
   end
 
   pour_bottle? do
