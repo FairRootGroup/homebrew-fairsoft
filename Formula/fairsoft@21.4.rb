@@ -9,6 +9,8 @@ class FairsoftAT214 < Formula
 
   bottle do
     root_url "https://alfa-ci.gsi.de/packages/brew"
+    sha256 big_sur: "a9416a30fe798f0a919b2bdb6e9012c3c5a530c69440183325b32f0a0f8f59a7"
+    sha256 catalina: "a124ac7d0339958ec788fe1b8f1a24d13cabc82638f389b466ff89920cf5e726"
   end
 
   pour_bottle? do
