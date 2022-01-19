@@ -3,15 +3,12 @@ class FairsoftAT214 < Formula
   homepage "https://github.com/FairRootGroup/FairSoft"
   url "https://github.com/FairRootGroup/FairSoft",
     :using => :git,
-    :revision => "8fe60a452045f34d1812e9d7435df570d256beca"
+    :revision => "5b05a1dad2102f4c988edeb5056dfe966a61722f"
   license "LGPL-3.0+"
-  version "apr21"
+  version "apr21p2"
 
   bottle do
     root_url "https://alfa-ci.gsi.de/packages/brew"
-    rebuild 1
-    sha256 big_sur: "e4407be96c656560185b45b008f3c35a81ce83c466ebf03b3dbf04a9fa76c699"
-    sha256 catalina: "e239aa2acd356066d6421c5a006742e33b459a6a3fc77f644f446058882e5730"
   end
 
   pour_bottle? do
@@ -22,8 +19,8 @@ class FairsoftAT214 < Formula
   end
 
   resource "source_cache" do
-    url "https://alfa-ci.gsi.de/packages/FairSoft_source_cache_full_apr21.tar.gz"
-    sha256 "53343f4430e17a38cb9c50ffc99291e0fc822b0268a77313941fa6745ffcf166"
+    url "https://alfa-ci.gsi.de/packages/FairSoft_source_cache_full_apr21p2.tar.gz"
+    sha256 "165cab3ed6f04fdc61e3e2ece0bb186154fce5a9f37fc96168c86f7ddc2c07dd"
   end
 
   depends_on "cmake"
