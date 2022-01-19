@@ -3,14 +3,12 @@ class Fairroot < Formula
   homepage "http://github.com/FairRootGroup/FairRoot"
   url "https://github.com/FairRootGroup/FairRoot",
     :using => :git,
-    :revision => "1f9e60a223d697b491f0f1ec1693f48e29699caa"
+    :revision => "99491c25d0cd952cad8d5260dfcc871c06d32a78"
   license "LGPL-3.0+"
-  version "18.6.4"
+  version "18.6.6"
 
   bottle do
     root_url "https://alfa-ci.gsi.de/packages/brew"
-    sha256 catalina: "741d8982de1a89cf42897c011e3a53a81d9dc7848e2ab86f526727d473b1ef38"
-    sha256 big_sur: "208a0d261a3a9213e4925e36a702755e06d14f194231e46b6e381047e15e2dc8"
   end
 
   pour_bottle? do
