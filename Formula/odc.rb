@@ -3,9 +3,9 @@ class Odc < Formula
   homepage "http://github.com/FairRootGroup/ODC"
   url "https://github.com/FairRootGroup/ODC",
     :using => :git,
-    :revision => "f48c2e280e19a79810665cb1b681d3952f714d54"
+    :revision => "c834aa25bfc64ca2dc93a0d6a9e03ddb781bc278"
   license "LGPL-3.0+"
-  version "0.40"
+  version "0.62"
 
   # bottle do
     # root_url "https://alfa-ci.gsi.de/packages"
