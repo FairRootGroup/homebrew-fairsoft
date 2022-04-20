@@ -101,7 +101,7 @@ class FairsoftAT224 < Formula
     args = std_cmake_args.reject{ |e| e =~ /CMAKE_(CX*_FLAGS|BUILD_TYPE|OSX_SYSROOT)/ }
     args << "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
     args << "-DSOURCE_CACHE=#{cache}"
-    args << "-DPYTHON_EXECUTABLE=#{Formula["python"].opt_bin}/python3"
+    args << "-DPython_EXECUTABLE=#{Formula["python"].opt_bin}/python3"
     args << "-DICU_ROOT=#{Formula["icu4c"].prefix}"
     args << "-DCMAKE_OSX_SYSROOT=#{MacOS.sdk_path(0)}"
     system "cmake", "-S", ".", "-B", builddir, *args
