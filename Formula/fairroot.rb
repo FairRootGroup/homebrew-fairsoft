@@ -3,18 +3,16 @@ class Fairroot < Formula
   homepage "http://github.com/FairRootGroup/FairRoot"
   url "https://github.com/FairRootGroup/FairRoot",
     :using => :git,
-    :revision => "99491c25d0cd952cad8d5260dfcc871c06d32a78"
+    :revision => "ac8074b2fdbf67906005b9807912780b391aeda0"
   license "LGPL-3.0+"
-  version "18.6.6"
+  version "18.6.8"
 
   bottle do
     root_url "https://alfa-ci.gsi.de/packages/brew"
-    sha256 big_sur: "1c7fb55656af29478909ecefeb1ff6a67e2625b1a6ca248eff2743d98808800c"
-    sha256 catalina: "1d0c2ee88f5d035d9006a7010486b0c562ff20f37f17822b468713dbf349bcf8"
   end
 
   pour_bottle? do
-    reason "The bottle requires CommandLineTools for Xcode 12+."
+    reason "The bottle requires CommandLineTools for Xcode 13+."
     satisfy { MacOS::CLT.installed? }
   end
 
