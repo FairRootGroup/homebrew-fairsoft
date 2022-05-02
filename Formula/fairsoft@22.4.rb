@@ -3,7 +3,7 @@ class FairsoftAT224 < Formula
   homepage "https://github.com/FairRootGroup/FairSoft"
   url "https://github.com/FairRootGroup/FairSoft",
     :using => :git,
-    :revision => "1328109f4b307a63ab0b1aef80988f7b693fb904"
+    :revision => "89c1778a30745569eab91ba64f5d3d480cebf973"
   license "LGPL-3.0+"
   version "apr22rc"
 
