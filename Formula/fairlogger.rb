@@ -3,19 +3,16 @@ class Fairlogger < Formula
   homepage "https://github.com/FairRootGroup/FairLogger"
   url "https://github.com/FairRootGroup/FairLogger",
     :using => :git,
-    :revision => "13ebedca3d66e8e07e1481028c36dc19334e4b4e"
+    :revision => "953eac19c8d43e31eb131c48bb6fe0656f6b1552"
   license "LGPL-3.0+"
-  version "1.9.3"
+  version "1.11.0"
 
   bottle do
     root_url "https://alfa-ci.gsi.de/packages/brew"
-    sha256 cellar: :any, catalina: "61c62a141cd3314b3a16b2cc63be69c5a00974c227dfe4266f25db8102a8ca64"
-    sha256 cellar: :any, big_sur: "526bb7e6fe417c874d7241fd89d5de09be6452f766d3ab1fa58a84326d2c7612"
-    sha256 cellar: :any, arm64_big_sur: "587d83a3353dff85f07a354ab8171125b3ad10d00dc78bc2ba78ef3f0c9bb8f8"
   end
 
   pour_bottle? do
-    reason "The bottle requires CommandLineTools for Xcode 12+."
+    reason "The bottle requires CommandLineTools for Xcode 13+."
     satisfy { MacOS::CLT.installed? }
   end
 
