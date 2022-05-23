@@ -78,6 +78,10 @@ class FairsoftAT224 < Formula
   end
 
   def install
+    ENV.delete("CMAKE_INCLUDE_PATH")
+    ENV.delete("CMAKE_LIBRARY_PATH")
+    ENV.delete("HOMEBREW_SDKROOT")
+
     # Prevents embedding the brew compiler wrapper path in some root artifacts
     inreplace "#{Dir.pwd}/cmake/legacy.cmake",
       /^      \$\{root_cocoa\}/,
