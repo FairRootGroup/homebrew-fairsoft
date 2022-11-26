@@ -68,18 +68,18 @@ class FairsoftAT2211 < Formula
 
     # Prevents embedding the brew compiler wrapper path in some root artifacts
     inreplace "#{Dir.pwd}/cmake/legacy.cmake",
-      /^      \$\{root_cocoa\}/,
-       "      ${root_cocoa}\n      \"-DCLING_CXX_PATH=#{ENV.cxx}\""
+      /^    \$\{root_cocoa\}/,
+       "    ${root_cocoa}\n    \"-DCLING_CXX_PATH=#{ENV.cxx}\""
 
     # Prevents embedding the brew compiler wrapper path in some pythia8 artifacts
     inreplace "#{Dir.pwd}/cmake/legacy.cmake",
-      /^      "--cxx=\$\{CMAKE_CXX_COMPILER\}"/,
-       "      \"--cxx=#{ENV.cxx}\""
+      /^    "--cxx=\$\{CMAKE_CXX_COMPILER\}"/,
+       "    \"--cxx=#{ENV.cxx}\""
 
     # Prevents embedding the brew compiler wrapper path in some fairsoft-config artifacts
     inreplace "#{Dir.pwd}/cmake/legacy.cmake",
-      /^    "-DFAIRSOFT_VERSION=apr22"/,
-       "    \"-DFAIRSOFT_VERSION=apr22\" " +
+      /^  "-DFAIRSOFT_VERSION=nov22"/,
+       "  \"-DFAIRSOFT_VERSION=nov22\" " +
            "\"-DCMAKE_C_COMPILER=/usr/bin/#{ENV.cc}\" " +
            "\"-DCMAKE_CXX_COMPILER=/usr/bin/#{ENV.cxx}\" " +
            "\"-DCMAKE_Fortran_COMPILER=#{HOMEBREW_PREFIX}/bin/gfortran\""
