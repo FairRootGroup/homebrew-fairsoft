@@ -78,6 +78,9 @@ class FairsoftAT214 < Formula
   end
 
   def install
+    # Do not filter out -march, see https://github.com/Homebrew/brew/commit/0404da7ba7d22379b236c503d6a87746a848776c
+    ENV.runtime_cpu_detection
+
     # Prevents embedding the brew compiler wrapper path in some root artifacts
     inreplace "#{Dir.pwd}/cmake/legacy.cmake",
       /^      \$\{root_cocoa\}/,
