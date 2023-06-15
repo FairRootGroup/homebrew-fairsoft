@@ -3,13 +3,9 @@ class Fairmq < Formula
   homepage "http://github.com/FairRootGroup/FairMQ"
   url "https://github.com/FairRootGroup/FairMQ",
     :using => :git,
-    :revision => "69faa63c5b46df6c58af919796a9d651c19705e4"
+    :revision => "42d27af20fb5cbbbc0b0fdfef1c981d51a8baf87"
   license "LGPL-3.0+"
-  version "1.4.50"
-
-  bottle do
-    root_url "https://alfa-ci.gsi.de/packages/brew"
-  end
+  version "1.6.0"
 
   pour_bottle? do
     reason "The bottle requires CommandLineTools for Xcode 12+."
