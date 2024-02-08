@@ -7,6 +7,8 @@ class FairsoftAT224 < Formula
   license "LGPL-3.0+"
   version "apr22rc"
 
+  deprecate! date: "2024-02-08", because: "deprecated in favor of a single 'fairsoft' formula, which points to the latest release only. Older releases are not supported."
+
   bottle do
     root_url "https://alfa-ci.gsi.de/packages/brew"
   end

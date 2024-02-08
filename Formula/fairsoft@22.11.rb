@@ -7,6 +7,8 @@ class FairsoftAT2211 < Formula
   license "LGPL-3.0+"
   version "nov22"
 
+  deprecate! date: "2024-02-08", because: "deprecated in favor of a single 'fairsoft' formula, which points to the latest release only. Older releases are not supported."
+
   depends_on "cmake"
   depends_on "cfitsio"
   depends_on "coreutils"
